@@ -87,6 +87,30 @@ export const Filters: FC<FiltersProps> = ({ className }): ReactElement => {
             text: "Томаты",
             value: "6",
           },
+          {
+            text: "Сырный соус",
+            value: "1",
+          },
+          {
+            text: "Моцарелла",
+            value: "2",
+          },
+          {
+            text: "Чеснок",
+            value: "3",
+          },
+          {
+            text: "Соленые огурчики",
+            value: "4",
+          },
+          {
+            text: "Красный лук",
+            value: "5",
+          },
+          {
+            text: "Томаты",
+            value: "6",
+          },
         ]}
       />
     </div>

@@ -18,7 +18,7 @@ export const Header: FC<HeaderProps> = ({ className }): ReactElement => {
     <div className={cn("border border-b", className)}>
       <Container className="flex items-center justify-between py-8">
         <Link href={"/"}>
-          <Image src="logo.svg" width={202} height={51} alt="Логотип" />
+          <Image src="/logo.svg" width={202} height={51} alt="Логотип" />
         </Link>
         {/* <Input width={764} placeholder="Поиск пиццы..." /> */}
         <div className="flex items-center gap-4">

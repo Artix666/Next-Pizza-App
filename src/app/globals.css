@@ -53,9 +53,9 @@
   --card-foreground: oklch(0.141 0.005 285.823);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.141 0.005 285.823);
-  --primary: oklch(69.367% 0.18462 41.307);
+  --primary: #fe7f00;
   --primary-foreground: oklch(0.98 0.016 73.684);
-  --secondary: oklch(78.118% 0.08259 70.345 / 0.043);
+  --secondary: #FFF7EE;
   --secondary-foreground: oklch(0.21 0.006 285.885);
   --muted: oklch(0.967 0.001 286.375);
   --muted-foreground: oklch(0.552 0.016 285.938);
@@ -94,6 +94,10 @@ b {
 @layer base {
   * {
     @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }
 
   body {

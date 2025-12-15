@@ -6,6 +6,8 @@ import { FilterCheckbox } from "./filter-checkbox";
 import { Filters } from "./filters";
 import { TopBar } from "./top-bar";
 import { RangeSlider } from "./range-slider";
+import { ProductCard } from "./product-card";
+import { ProductsGroupList } from "./products-group-list";
 
 export {
   Header,
@@ -16,4 +18,6 @@ export {
   Filters,
   TopBar,
   RangeSlider,
+  ProductCard,
+  ProductsGroupList,
 };

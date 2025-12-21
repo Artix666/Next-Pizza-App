@@ -4,8 +4,9 @@ import { FC, ReactElement, useState } from "react";
 import { Container } from "./container";
 import Link from "next/link";
 import Image from "next/image";
-import { Button, Input } from "@/components/ui";
+import { Button } from "@/components/ui";
 import { ArrowRight, ShoppingCart, User } from "lucide-react";
+import { SearchInput } from "@/components/shared";
 
 interface HeaderProps {
   className?: string;
@@ -20,7 +21,10 @@ export const Header: FC<HeaderProps> = ({ className }): ReactElement => {
         <Link href={"/"}>
           <Image src="/logo.svg" width={202} height={51} alt="Логотип" />
         </Link>
-        {/* <Input width={764} placeholder="Поиск пиццы..." /> */}
+
+        <div className="mx-10 flex-1">
+          <SearchInput />
+        </div>
         <div className="flex items-center gap-4">
           <Button className="flex items-center gap-1" variant={"outline"}>
             <User size={16} />

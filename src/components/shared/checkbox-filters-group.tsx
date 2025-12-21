@@ -1,8 +1,7 @@
 "use client";
 import { ChangeEvent, FC, ReactElement, useState } from "react";
 import { FilterCheckbox, FilterCheckboxProps } from "./filter-checkbox";
-import { Input } from "@/components/ui";
-import { on } from "events";
+import { Input, Skeleton } from "@/components/ui";
 
 type Item = FilterCheckboxProps;
 
@@ -11,9 +10,11 @@ interface CheckboxFiltersGroupProps {
   items: Item[];
   defaultItems: Item[];
   limit: number;
+  loading: boolean;
   searchInputPlaceholder?: string;
-  onChange?: (value: string) => void;
+  onClickCheckbox?: (id: string) => void;
   defaultValue?: string[];
+  selectedIds?: Set<string>;
   className?: string;
 }
 
@@ -23,9 +24,11 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
   defaultItems,
   limit = 5,
   searchInputPlaceholder = "Поиск...",
-  onChange,
+  onClickCheckbox,
   defaultValue,
   className,
+  loading,
+  selectedIds,
 }): ReactElement => {
   const [showAll, setShowAll] = useState<boolean>(false);
   const [searchValue, setSearchValue] = useState<string>("");
@@ -39,6 +42,18 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
   const onChangeSearchInput = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchValue(e.target.value);
   };
+
+  if (loading) {
+    return (
+      <div className={className}>
+        <p className="font-bold mb-3">{title}</p>
+        {[...new Array(limit)].map((_, i) => (
+          <Skeleton key={i} className="h-6 mb-4" />
+        ))}
+        <Skeleton className="w-30 h-6 rounded-xl " />
+      </div>
+    );
+  }
 
   return (
     <div className={className}>
@@ -57,8 +72,8 @@ export const CheckboxFiltersGroup: FC<CheckboxFiltersGroupProps> = ({
         {list.map((item, i) => (
           <FilterCheckbox
             key={i}
-            onCheckedChange={(ids) => console.log(ids)}
-            checked={false}
+            onCheckedChange={() => onClickCheckbox?.(item.value)}
+            checked={selectedIds?.has(item.value)}
             value={item.value}
             text={item.text}
             endAdornment={item.endAdornment}

@@ -8,6 +8,7 @@ import { TopBar } from "./top-bar";
 import { RangeSlider } from "./range-slider";
 import { ProductCard } from "./product-card";
 import { ProductsGroupList } from "./products-group-list";
+import { SearchInput } from "./search-input";
 
 export {
   Header,
@@ -20,4 +21,5 @@ export {
   RangeSlider,
   ProductCard,
   ProductsGroupList,
+  SearchInput,
 };
